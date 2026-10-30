@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnemyMovement : MonoBehaviour
 
@@ -8,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
     public Transform[] waypoints;
     public float speed = 3f;
     public int currentindex = 0;
+    public TextMeshProUGUI healthText;
 
     // Start is called before the first frame update
     void Start()
