@@ -11,6 +11,7 @@ public class WaveSpawner : MonoBehaviour
     public int enemiesPerWave = 3;  //单波次数量
     private float timer = 0f;   //计时器
     private int spawned = 0;    //已生成数量
+    private int wave = 1;   //当前波次
     public Transform[] waypoints;
     // Start is called before the first frame update
     void Start()
@@ -21,15 +22,34 @@ public class WaveSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (spawned >= enemiesPerWave) return;
-
-        timer += Time.deltaTime;
-        if (timer >= spawnInterval)
+        if(spawned< enemiesPerWave)
         {
-            GameObject newenemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
-            newenemy.GetComponent<EnemyMovement>().waypoints = waypoints;
-            spawned++;
-            timer = 0f;
+            //正在出怪
+            timer += Time.deltaTime;
+            if (timer >= spawnInterval)
+            {
+                timer = 0f;
+                SpawnEnemy();
+                spawned++;
+
+            }
         }
+        else
+        {
+            timer += Time.deltaTime;
+            if(timer >= spawnInterval)
+            {
+                timer = 0f;
+                wave++;
+                spawned = 0;
+                Debug.Log("第" + wave + "波开始！");
+            }
+        }
+    }
+
+    void SpawnEnemy()
+    {
+        GameObject newEnemy = Instantiate(enemyPrefab, spawnPoint.position, Quaternion.identity);
+        newEnemy.GetComponent<EnemyMovement>().waypoints = waypoints;
     }
 }
