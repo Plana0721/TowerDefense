@@ -18,6 +18,10 @@ public class EnemyHealth : MonoBehaviour
 
         if (health <= 0)
         {
+            if (EconomyManager.Instance!= null)
+            {
+                EconomyManager.Instance.AddMoney(10);
+            }
             Debug.Log("敌人死亡");
             Destroy(gameObject);
         }
