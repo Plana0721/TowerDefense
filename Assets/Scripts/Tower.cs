@@ -7,7 +7,10 @@ public class Tower : MonoBehaviour
 {
     public float range = 5f;    //检测范围
     public float fireInterval = 0.5f;   //开火间隔
-    private float fireTimer = 0f; //计时器
+    public GameObject bulletPrefab;     //子弹预制体
+    public Transform firePoint;    //开火位置
+    private float fireTimer = 0f;   //计时器
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,17 +47,21 @@ public class Tower : MonoBehaviour
             fireTimer += Time.deltaTime;
             if (fireTimer >= fireInterval)
             {
-                EnemyHealth enemy = target.GetComponent<EnemyHealth>();
-                if (enemy != null)
+                fireTimer = 0f;
+                if(bulletPrefab!=null && firePoint != null)
                 {
-                    Debug.Log("Fire!");
-                    enemy.TakeDamage(1f);
+                    GameObject newBullet = Instantiate(bulletPrefab, firePoint.position, Quaternion.LookRotation(target.position - firePoint.position));
+                    Bullet b = newBullet.GetComponent<Bullet>();
+                    if (b != null)
+                    {
+                        b.SetTarget(target);
+                    }
                 }
                 else
                 {
-                    Debug.Log("目标敌人缺少EnemyHealth脚本");
+                    Debug.Log("未设置炮口或子弹预制体");
                 }
-                fireTimer = 0f;
+               
             }
         }
         else

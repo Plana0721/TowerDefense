@@ -123,6 +123,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 5
   fireInterval: 0.5
+  bulletPrefab: {fileID: 6832434823863159422, guid: 0fd3393e216bf4d4581f390efa9b2cfa,
+    type: 3}
+  firePoint: {fileID: 4499513593949624511}
 --- !u!1 &6301755120652616758
 GameObject:
   m_ObjectHideFlags: 0
