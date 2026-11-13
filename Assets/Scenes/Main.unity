@@ -688,7 +688,11 @@ MonoBehaviour:
     type: 3}
   spawnPoint: {fileID: 1230695159}
   spawnInterval: 2
-  enemiesPerWave: 3
+  waveInterval: 3
+  baseEnemies: 5
+  enmiesGrowth: 2
+  baseHealth: 5
+  healthGrowth: 5
   waypoints:
   - {fileID: 1230695159}
   - {fileID: 840467734}
