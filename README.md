@@ -19,6 +19,7 @@
 - 玩家生命值、漏怪扣血、Game Over 暂停
 - 金币系统：击杀获得金币，UI 实时显示
 - 点击地面建塔（Physics.Raycast + 经济系统扣费）
+- 塔放置规则：重叠检测 + 网格吸附（避免穿模、排列整齐）
 - 路径可视化（LineRenderer）
 
 ## 操作
@@ -39,6 +40,7 @@
 - 预制体实例化 + 运行时依赖注入（解决预制体不能引用场景对象的问题）
 - 射线检测（Physics.Raycast）实现鼠标点击建塔
 - 球形范围检测（Physics.OverlapSphere）选择最近目标
+- 网格吸附（Mathf.RoundToInt）保证放置位置对齐
 - LineRenderer 路径可视化
 - FixedUpdate / Time.deltaTime 保证移动与逻辑帧率无关
 
@@ -51,3 +53,4 @@
 - 11-06 路径可视化（LineRenderer）
 - 11-08 子弹发射与命中伤害
 - 11-13 波次难度曲线（敌人数量 / 血量随波次递增）
+- 11-15 塔放置规则（重叠检测、网格吸附）
