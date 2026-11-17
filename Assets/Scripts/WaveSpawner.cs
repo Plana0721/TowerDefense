@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
+using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class WaveSpawner : MonoBehaviour
     public int enmiesGrowth = 1;    //每波敌人增长数
     public float baseHealth = 3f;   //敌人基准血量
     public float healthGrowth = 1f;     //每波敌人血量增长数
+    public TextMeshProUGUI waveText;
     private float timer = 0f;   //计时器
     private int spawned = 0;    //已生成数量
     private int wave = 1;   //当前波次
@@ -20,7 +22,7 @@ public class WaveSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        UpdateWaveUI();
     }
 
     // Update is called once per frame
@@ -48,6 +50,7 @@ public class WaveSpawner : MonoBehaviour
                 wave++;
                 spawned = 0;
                 Debug.Log("第" + wave + "波开始！敌人数量："+ (baseEnemies + enmiesGrowth * (wave - 1)));
+                UpdateWaveUI();
             }
         }
     }
@@ -60,6 +63,13 @@ public class WaveSpawner : MonoBehaviour
         if (health != null)
         {
             health.health = baseHealth + healthGrowth * (wave - 1);
+        }
+    }
+    void UpdateWaveUI()
+    {
+        if(waveText.text!=null)
+        {
+            waveText.text = "Wave:" + wave;
         }
     }
 }
