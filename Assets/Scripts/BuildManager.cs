@@ -1,5 +1,4 @@
 using Unity.Mathematics;
-using UnityEditor;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
@@ -24,7 +23,7 @@ public class BuildManager : MonoBehaviour
     void TryBuildTower()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray,out RaycastHit hit, 100f))
+        if(Physics.Raycast(ray,out RaycastHit hit, 100f,Physics.AllLayers,QueryTriggerInteraction.Ignore))
         {
             //判断地面
             if (!hit.collider.CompareTag("Ground"))
@@ -39,7 +38,6 @@ public class BuildManager : MonoBehaviour
             //检查是否与现有塔穿模
             if (!CanBuild(pos))
             {
-                Debug.Log("放置失败，附近已经有塔了");
                 return;
             }
             if (!EconomyManager.Instance.SpendMoney(towerCost))
@@ -57,8 +55,16 @@ public class BuildManager : MonoBehaviour
         Collider[] hits = Physics.OverlapSphere(checkpos, 0.6f);
         foreach(Collider hit in hits)
         {
+            //附近有没有塔
             if(hit.GetComponent<Tower>()!= null)
             {
+                Debug.Log("放置失败，附近已经有塔了");
+                return false;
+            }
+            //附近有没有路径
+            if (hit.CompareTag("Path"))
+            {
+                Debug.Log("放置失败，不能建立在路径上");
                 return false;
             }
         }

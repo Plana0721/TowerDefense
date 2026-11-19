@@ -21,6 +21,7 @@
 - 金币系统：击杀获得金币，UI 实时显示
 - 点击地面建塔（Physics.Raycast + 经济系统扣费）
 - 塔放置规则：重叠检测 + 网格吸附（避免穿模、排列整齐）
+- 禁止建在敌人路径上（路径 Trigger 碰撞体 + 重叠检测）
 - 路径可视化（LineRenderer）
 
 ## 操作
@@ -42,6 +43,7 @@
 - 射线检测（Physics.Raycast）实现鼠标点击建塔
 - 球形范围检测（Physics.OverlapSphere）选择最近目标
 - 网格吸附（Mathf.RoundToInt）保证放置位置对齐
+- Trigger 碰撞体做禁建区域 + Raycast 忽略 Trigger（QueryTriggerInteraction.Ignore）
 - LineRenderer 路径可视化
 - FixedUpdate / Time.deltaTime 保证移动与逻辑帧率无关
 
@@ -56,3 +58,4 @@
 - 11-13 波次难度曲线（敌人数量 / 血量随波次递增）
 - 11-15 塔放置规则（重叠检测、网格吸附）
 - 11-17 波次 UI（显示当前波次）
+- 11-19 禁止建在敌人路径上（路径碰撞体 + Trigger 检测）
