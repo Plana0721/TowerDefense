@@ -17,6 +17,7 @@
 - 波次生成（Prefab + Instantiate + 运行时注入路径点）
 - 波次难度曲线（第 N 波敌人数量 / 血量递增）
 - 波次 UI（左上角实时显示当前波次）
+- 有限波次 + 胜利条件（清空全部波次显示 You Win!）
 - 玩家生命值、漏怪扣血、Game Over 暂停
 - 金币系统：击杀获得金币，UI 实时显示
 - 点击地面建塔（Physics.Raycast + 经济系统扣费）
@@ -44,6 +45,7 @@
 - 球形范围检测（Physics.OverlapSphere）选择最近目标
 - 网格吸附（Mathf.RoundToInt）保证放置位置对齐
 - Trigger 碰撞体做禁建区域 + Raycast 忽略 Trigger（QueryTriggerInteraction.Ignore）
+- 用 FindGameObjectsWithTag 统计存活敌人，判定通关条件
 - LineRenderer 路径可视化
 - FixedUpdate / Time.deltaTime 保证移动与逻辑帧率无关
 
@@ -59,3 +61,4 @@
 - 11-15 塔放置规则（重叠检测、网格吸附）
 - 11-17 波次 UI（显示当前波次）
 - 11-19 禁止建在敌人路径上（路径碰撞体 + Trigger 检测）
+- 11-23 有限波次与胜利条件（清空全部波次 → You Win!）

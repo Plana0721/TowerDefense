@@ -681,7 +681,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2, y: 0.5, z: -2}
-  m_LocalScale: {x: 5, y: 1, z: 0.6}
+  m_LocalScale: {x: 4.6, y: 1, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1908064143}
@@ -757,6 +757,8 @@ MonoBehaviour:
   baseHealth: 5
   healthGrowth: 5
   waveText: {fileID: 776466949}
+  gameOverText: {fileID: 495824016}
+  maxWaves: 10
   waypoints:
   - {fileID: 1230695159}
   - {fileID: 840467734}
@@ -1015,7 +1017,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: -4}
-  m_LocalScale: {x: 0.6, y: 1, z: 5}
+  m_LocalScale: {x: 0.6, y: 1, z: 4.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1908064143}
@@ -1697,7 +1699,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 4, y: 0.5, z: 1}
-  m_LocalScale: {x: 0.6, y: 1, z: 7}
+  m_LocalScale: {x: 0.6, y: 1, z: 6.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1908064143}
@@ -1863,7 +1865,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 6, y: 0.5, z: 4}
-  m_LocalScale: {x: 5, y: 1, z: 0.6}
+  m_LocalScale: {x: 4.6, y: 1, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1908064143}
